@@ -25,9 +25,16 @@ import { View,
     }
 
     getCardStyle(){
+      const { position } = this.state;
+      
+      const rotate = position.x.interpolate({
+        inputRange: [-500, 0 ,500],
+        outputRange: ['-120deg', '0deg', '120deg']
+      });
+
       return{
         ...this.state.position.getLayout(),
-        transform: [{rotate: '-45deg'}]
+        transform: [{rotate}]
       };
     }
     renderCards(){
