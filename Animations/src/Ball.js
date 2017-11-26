@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {View, StyleSheet} from 'react-native';
 
 class Ball extends Component{
+  componentDidMount(){
+    
+  }
   render(){
     return(
       <View style={styles.ball}/>
