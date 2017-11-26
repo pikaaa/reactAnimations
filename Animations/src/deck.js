@@ -21,10 +21,18 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
           // console.log(gesture);
           position.setValue({x: gesture.dx, y: gesture.dy});
         },
-        onPanResponderRelease: () => {}
+        onPanResponderRelease: () => {
+          this.resetPosition();
+        }
       });
       // this.panResponder = panResponder;
       this.state = {panResponder, position}; //Its seen but not a good practice, creates confusion due to the rule that state should not b updated manually!!
+    }
+
+    resetPosition(){
+      Animated.spring(this.state.position, {
+        toValue: { x: 0, y: 0 }
+      }).start();
     }
 
     getCardStyle(){
