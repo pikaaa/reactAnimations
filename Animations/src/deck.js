@@ -10,15 +10,18 @@ import { View,
   class Deck extends Component{
     constructor(props){
       super(props);
+
+      const position = new Animated.ValueXY();
       const panResponder = PanResponder.create({
-        onStartShouldSetPanResponder: () => {},
+        onStartShouldSetPanResponder: () => true,
         onPanResponderMove: (event, gesture) => {
-          console.log(gesture);
+          // console.log(gesture);
+          position.setValue({x: gesture.dx, y: gesture.dy});
         },
         onPanResponderRelease: () => {}
       });
       // this.panResponder = panResponder;
-      this.state = {panResponder}; //Its seen but not a good practice, creates confusion
+      this.state = {panResponder, position}; //Its seen but not a good practice, creates confusion due to the rule that state should not b updated manually!!
     }
 
     renderCards(){
@@ -29,9 +32,11 @@ import { View,
 
     render(){
       return(
-        <View>
+        <Animated.View
+        style={this.state.position.getLayout()}
+        {...this.state.panResponder.panHandlers}>
           {this.renderCards()}
-        </View>
+        </Animated.View>
       );
     }
   }
