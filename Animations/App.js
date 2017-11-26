@@ -27,7 +27,7 @@ const DATA= [
 export default class App extends Component<{}> {
   renderCard(item) {
     return(
-      <FnBTableCell imageUri={item.uri}/>
+      <FnBTableCell id={item.id}/>
     );
   }
 

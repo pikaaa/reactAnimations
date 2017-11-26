@@ -37,7 +37,7 @@ class FnBTableCell extends Component{
     return(
       <View style={{margin: 20}}>
         <View style={styles.cell}>
-        <Image source={{uri: this.props.imageUri}} style = {styles.image}/>
+        <Image source={{uri: 'https://in.bmscdn.com/marketingspots/banner/image_1_320x128_.jpg'}} style = {styles.image}/>
         <View style={styles.fnbDetails}>
           <Text style={styles.deals}>{this.props.id}</Text>
           <Text numberOfLines={2} style={styles.commodities}>{commodities}</Text>
